@@ -96,7 +96,7 @@ int main() {
     int sum = num + num2;
     printf("The sum in hexadecimal: %X\n", sum);
     //Print only 4 bits, in positions: 3,5,7,11 in the result. */
-    printf("The 3,5,7,11, bits are: %d%d%d%d\n", (sum>>3) & 1,(sum>>5) & 1, (sum>>7) & 1, (sum>>11) & 1);
+    printf("The 3,5,7,11 bits are: %d%d%d%d\n", (sum>>3) & 1,(sum>>5) & 1, (sum>>7) & 1, (sum>>11) & 1);
 
     printf("Bye!\n");
     return 0;
