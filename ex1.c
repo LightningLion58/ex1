@@ -64,21 +64,39 @@ int main() {
     scanf("%d", &num);
     printf("Please enter a position:\n");
     scanf("%d", &pos);
-    /*Toggle the bit in this position
-    Print the new number */
-    int numToggled = num & (~0 - (1<<pos));
+    //Toggle the bit in this position
+    int numToggled = num ^ (1<<pos);
+    //Print the new number
     printf("Number with bit %d toggled: %d\n", pos, numToggled);
 
-    // Even - Odd
-    //printf("\nEven - Odd:\n");
-    /* Scan an integer
-    If the number is even - print 1, else - print 0. */
-
-    // 3, 5, 7, 11
-    //printf("\n3, 5, 7, 11:\n");
-    /* Scan two integers in octal base
-    sum them up and print the result in hexadecimal base
-    Print only 4 bits, in positions: 3,5,7,11 in the result. */
+    //4.  Even - Odd
+    printf("\nEven - Odd:\n");
+    //Scan an integer
+    printf("Please enter a number:\n");
+    scanf("%d", &num);
+    /*
+     * Get the first bit from the right (by doing num&1 ),
+     * check if it is different from 1 (using the xor bitwise operator).
+     * Basically we are negating the first bit. 1 to 0, 0 to 1.
+     * Because if the first bit is 1, the number is odd (meaning we should print 0),
+     * if it is 0, the number is even (meaning we should print 1).
+     */
+    int isEven = (num&1) ^ 1;
+    //Print the result.
+    printf("%d\n", isEven);
+    //5. 3, 5, 7, 11
+    printf("\n3, 5, 7, 11:\n");
+    // Scan two integers in octal base
+    int num2;
+    printf("Please enter the first number (octal):\n");
+    scanf("%o", &num);
+    printf("Please enter the second number (octal):\n");
+    scanf("%o", &num2);
+    //Sum them up and print the result in hexadecimal base
+    int sum = num + num2;
+    printf("%X\n", sum);
+    //Print only 4 bits, in positions: 3,5,7,11 in the result. */
+    printf("The 3,5,7,11, bits are: %d%d%d%d\n", (sum>>3) & 1,(sum>>5) & 1, (sum>>7) & 1, (sum>>11) & 1);
 
     printf("Bye!\n");
     return 0;
